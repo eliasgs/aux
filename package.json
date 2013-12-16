@@ -1,0 +1,23 @@
+{
+  "name": "aux",
+  "version": "0.0.1",
+  "description": "Simplify running commands on multiple systems",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "eliasgs/aux"
+  },
+  "keywords": [
+    "deployments",
+    "administration",
+    "remote",
+    "ssh"
+  ],
+  "author": "Elias G. Schneevoigt",
+  "license": "MIT"
+}
