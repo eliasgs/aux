@@ -1,6 +1,7 @@
 var assert = require('assert');
-var aux = require('../lib/aux');
+var Aux = require('../lib/aux');
+var aux = new Aux({silent: true});
 
-aux({silent: true}).local('echo "TEST"', 'ls');
+aux.local('echo "TEST"', 'ls');
 aux.local('ls /').stdout.pipe(process.stdout);
 
