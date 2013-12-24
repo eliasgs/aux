@@ -1,4 +1,4 @@
-# aux
+# aux - DRAFT
 
 To simplify scripting access to multiple machines, we present here a simple API
 that makes running commands on a POSIX compliant system, either local or
