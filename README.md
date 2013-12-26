@@ -114,6 +114,6 @@ var aux = require('aux');
 var server1 = aux.Remote({host: 'server1.example.com'});
 var server2 = aux.Remote({host: 'server2.example.com'});
 
-server1('cmd').pipe(server2('cmd2'));
+server1('cmd').stdout.pipe(server2('cmd2').stdin);
 ```
 
