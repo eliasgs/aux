@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "description": "Simplify running commands on multiple systems",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "duplexer": "~0.1.1"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "mocha"
