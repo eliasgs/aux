@@ -42,8 +42,8 @@ aux [--user <username>] --remove-command <command>
 ```javascript
 var aux = require('aux');
 
-aux.testing = new aux.Remote({host: 'testing.example.com'});
-aux.staging = new aux.Remote(
+aux.testing = new aux.remote({host: 'testing.example.com'});
+aux.staging = new aux.remote(
   {host: 'staging1.example.com'},
   {host: 'staging2.example.com'},
   {host: 'staging3.example.com'});
@@ -74,7 +74,7 @@ aux --user fred --add-command "sudo service \w+ restart"
 ```javascript
 var aux = require('aux');
 
-var server = new aux.Remote({host: 'example.com'});
+var server = new aux.remote({host: 'example.com'});
 server('sudo service nginx restart', function (err, result) {
   if (err) throw err;
   console.log(result.join('\n\n'));
@@ -96,10 +96,10 @@ var host2 = {host: 'host2.example.com', user: 'another_user'};
 var host3 = {host: 'host3.example.com'};
 var host3 = {host: 'host3.example.com'};
 
-var remote = new aux.Remote(host4);
-var realm1 = new aux.Realm(host1, host2, host3);
-var realm2 = new aux.Realm(remote, host3);
-var realm3 = new aux.Realm(realm1, realm2);
+var remote = new aux.remote(host4);
+var realm1 = new aux.realm(host1, host2, host3);
+var realm2 = new aux.realm(remote, host3);
+var realm3 = new aux.realm(realm1, realm2);
 
 remote('cmd', function (err, result) {});
 realm1('cmd', 'cmd2', function (err, result) {
@@ -111,9 +111,9 @@ Remotes are streamable
 ```javascript
 var aux = require('aux');
 
-var server1 = aux.Remote({host: 'server1.example.com'});
-var server2 = aux.Remote({host: 'server2.example.com'});
+var server1 = aux.remote({host: 'server1.example.com'});
+var server2 = aux.remote({host: 'server2.example.com'});
 
-server1('cmd').stdout.pipe(server2('cmd2').stdin);
+server1('cmd').pipe(server2('cmd2'));
 ```
 
